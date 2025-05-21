@@ -1,19 +1,17 @@
-"use client"
-
-import { useState } from "react"
-import { motion } from "framer-motion"
+import { MainLayout } from "./components/main-layout"
+import { WeeklyProgressChart } from "./components/weekly-progress-chart"
+import { defaultChecklists, mockProgressData } from "./lib/data"
+import { ChecklistCard } from "./components/checklist-card"
+import { PlatformFilter } from "./components/platform-filter"
+import { CreateTaskForm } from "./components/create-task-form"
+import { Button } from "./components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./components/ui/card"
+import { Platform, Task } from "./lib/types"
 import { Clock, Plus, Rocket } from "lucide-react"
-import { MainLayout } from "@/components/main-layout"
-import { WeeklyProgressChart } from "@/components/weekly-progress-chart"
-import { defaultChecklists, mockProgressData, platforms } from "@/lib/data"
-import { ChecklistCard } from "@/components/checklist-card"
-import { PlatformFilter } from "@/components/platform-filter"
-import { CreateTaskForm } from "@/components/create-task-form"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Platform, Task } from "@/lib/types"
+import { motion } from "framer-motion"
+import { useState } from "react"
 
-export default function Home() {
+export default function App() {
   const [selectedPlatform, setSelectedPlatform] = useState<Platform | "All">("All")
   const [checklists, setChecklists] = useState(defaultChecklists)
   
@@ -115,8 +113,8 @@ export default function Home() {
                   color: "text-amber-500",
                   bgColor: "bg-amber-500/10",
                   action: (
-                    <Button size="sm" variant="outline" asChild>
-                      <a href="/settings">Upgrade</a>
+                    <Button size="sm" variant="outline">
+                      Upgrade
                     </Button>
                   ),
                 },
@@ -150,8 +148,8 @@ export default function Home() {
       <div>
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-2xl font-bold">Daily Tasks</h2>
-          <Button variant="ghost" size="sm" asChild>
-            <a href="/tasks">View all</a>
+          <Button variant="ghost" size="sm">
+            View all
           </Button>
         </div>
         
